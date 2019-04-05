@@ -1,0 +1,36 @@
+
+<div class="ui container">
+
+  <h1><i class="ui list icon"></i> models\Project</h1>
+  <h4> Data administration</h4>
+  <button class="ui orange button">Add a new models\Project</button>
+
+  <table class="ui single line table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Descriptif</th>
+      <th>StartDate</th>
+      <th>DueDate</th>
+      <th></th>
+    </tr></thead>
+    <tbody>
+    <tr>
+      {{#each model as |proj|}}
+        <td>
+          {{proj.name}}
+          <button class="ui icon button" onclick="">
+            <i class="edit icon"></i>
+          </button>
+          <button class="ui red icon button">
+            <i class="minus icon"></i>
+          </button>
+        </td>
+      {{/each}}
+
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+{{outlet}}

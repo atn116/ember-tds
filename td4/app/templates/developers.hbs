@@ -1,0 +1,33 @@
+
+<div class="ui container">
+
+
+  <h1><i class="ui list icon"></i> models\Developer</h1>
+  <h4>Data administration</h4>
+  <button class="ui orange button" onclick="window.location.href='/developers/new'">Add a new models\Developer</button>
+
+<table class="ui single line table">
+  <thead>
+  <tr>
+    <th>Identity</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    {{#each model as |dev|}}
+        <td data-label="Identity">
+          {{dev.identity}}
+          <button class="ui icon button" {{action "developers/edit"}}>
+            <i class="edit icon"></i>
+          </button>
+          <button class="ui red icon button" {{action "developers/delete"}}>
+          <i class="minus icon"></i>
+        </button>
+        </td>
+    {{/each}}
+
+  </tr>
+
+  </tbody>
+</table>
+</div>
+{{outlet}}
