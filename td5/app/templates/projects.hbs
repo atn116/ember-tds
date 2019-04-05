@@ -1,0 +1,73 @@
+
+<div class="ui container">
+
+	<div class="ui horizontal list">
+		<div class="item">
+			{{#link-to "developers"}}
+				Developers
+			{{/link-to}}
+		</div>
+    <div class="item">
+      {{#link-to "projects"}}
+        Projects
+      {{/link-to}}
+    </div>
+	</div>
+
+  <h1><i class="ui list icon"></i> models\Developer</h1>
+  <h4>Data administration</h4>
+  {{#link-to "projects.new"}}
+    <button class="ui orange button"><i class="plus icon"></i>Add a new models\Project</button>
+  {{/link-to}}
+
+	<table class="ui large single line table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+        <th>Developer</th>
+				<th>Creation Date</th>
+				<th>Due Date</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each model as |project|}}
+				<tr>
+					<td>{{project.description}}</td>
+          <td>{{project.developer.identity}}</td>
+					<td>{{moment-format project.creationDate 'MM/DD/YYYY' 'MM/DD/YYYY'}}</td>
+					<td>{{moment-format project.dueDate 'MM/DD/YYYY' 'MM/DD/YYYY'}}</td>
+
+
+						<button class="circular icon ui button" {{action "askDeleteConfirm" project}}>
+							<i class="remove red icon"></i>
+						</button>
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+
+	</table>
+
+  {{#if model.del}}
+  <div class="ui icon message">
+  <div class="content">
+    <div class="header">
+      Do you want to delete {{model.del.name}} ?
+    </div>
+    <p>
+      <button class="positive ui button" {{action "deleteProject" model.del}}>
+        <i class="check icon"></i>
+        Confirm
+      </button>
+      <button class="negative ui button" onClick={{action "cancelDeletion"}}>
+        <i class="remove icon"></i>
+        Cancel
+      </button>
+    </p>
+  {{/if}}
+
+</div>
+
+{{outlet}}

@@ -1,0 +1,17 @@
+<div class="ui container" style="padding-top:100px">
+  <form class="ui form segment">
+    <div class="field">
+      <label>Identity</label>
+      {{input class="ui input" value=model.copy.identity}}
+    </div>
+    <button class="ui green submit button" {{action "save" model}}>Validate</button>
+
+    {{#link-to "developers"}}
+      <button class="ui button">
+        <i class="remove icon"></i>
+        Cancel
+      </button>
+    {{/link-to}}
+  </form>
+</div>
+{{outlet}}
