@@ -10,9 +10,9 @@ var Adapater=DS.RESTAdapter.extend({
     return hash;
   },
   host:'http://127.0.0.1:8000',
-  namespace: 'JeremyHUET',
+  namespace: 'CedricPA',
   user: 'admin',
-  password: 'changeit',
+  password: 'abc123',
   urlForDeleteRecord(id, modelName) {
     modelName=pluralize(modelName);
     return this.get('host')+'/'+this.get('namespace')+`/${modelName}/\*?filter={_id:'${id}'}`;
